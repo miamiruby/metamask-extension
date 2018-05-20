@@ -757,8 +757,7 @@ function setGasTotal (gasTotal) {
 
 function getGasEstimate ({ selectedAddress, selectedToken, data }) {
   return (dispatch) => {
-    const { symbol } = selectedToken || {}
-    const estimateGasParams = getParamsForGasEstimate(selectedAddress, symbol, data)
+    const estimateGasParams = getParamsForGasEstimate(selectedAddress, selectedToken, data)
     return Promise.all([
       dispatch(actions.getGasPrice()),
       dispatch(actions.estimateGas(estimateGasParams)),
