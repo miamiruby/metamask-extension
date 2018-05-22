@@ -32,6 +32,7 @@ describe('Send Component', function () {
     wrapper = shallow(<SendTransactionScreen
       amount={'mockAmount'}
       amountConversionRate={'mockAmountConversionRate'}
+      blockGasLimit={'mockBlockGasLimit'}
       conversionRate={10}
       data={'mockData'}
       editingTransactionId={'mockEditingTransactionId'}
@@ -200,6 +201,7 @@ describe('Send Component', function () {
       assert.deepEqual(
         propsMethodSpies.updateAndSetGasTotal.getCall(0).args[0],
         {
+          blockGasLimit: 'mockBlockGasLimit',
           data: 'mockData',
           editingTransactionId: 'mockEditingTransactionId',
           gasLimit: 'mockGasLimit',
