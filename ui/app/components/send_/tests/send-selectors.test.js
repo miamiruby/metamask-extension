@@ -5,6 +5,7 @@ const {
   accountsWithSendEtherInfoSelector,
   // autoAddToBetaUI,
   getAddressBook,
+  getBlockGasLimit,
   getAmountConversionRate,
   getConversionRate,
   getConvertedCurrency,
@@ -132,6 +133,15 @@ describe('send selectors', () => {
       assert.equal(
         getAmountConversionRate(editedMockState),
         1200.88200327
+      )
+    })
+  })
+
+  describe('getBlockGasLimit', () => {
+    it('should return the current block gas limit', () => {
+      assert.deepEqual(
+        getBlockGasLimit(mockState),
+        '0x4c1878'
       )
     })
   })

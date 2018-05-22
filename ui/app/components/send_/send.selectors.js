@@ -12,6 +12,7 @@ const selectors = {
   // autoAddToBetaUI,
   getAddressBook,
   getAmountConversionRate,
+  getBlockGasLimit,
   getConversionRate,
   getConvertedCurrency,
   getCurrentAccountWithSendEtherInfo,
@@ -88,6 +89,10 @@ function getAmountConversionRate (state) {
   return getSelectedToken(state)
     ? getSelectedTokenToFiatRate(state)
     : getConversionRate(state)
+}
+
+function getBlockGasLimit (state) {
+  return state.metamask.currentBlockGasLimit
 }
 
 function getConversionRate (state) {
