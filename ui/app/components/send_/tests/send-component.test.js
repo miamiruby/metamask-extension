@@ -42,6 +42,7 @@ describe('Send Component', function () {
       history={{ mockProp: 'history-abc'}}
       network={'3'}
       primaryCurrency={'mockPrimaryCurrency'}
+      recentBlocks={['mockBlock']}
       selectedAddress={'mockSelectedAddress'}
       selectedToken={'mockSelectedToken'}
       tokenBalance={'mockTokenBalance'}
@@ -203,6 +204,7 @@ describe('Send Component', function () {
           editingTransactionId: 'mockEditingTransactionId',
           gasLimit: 'mockGasLimit',
           gasPrice: 'mockGasPrice',
+          recentBlocks: ['mockBlock'],
           selectedAddress: 'mockSelectedAddress',
           selectedToken: 'mockSelectedToken',
         }
