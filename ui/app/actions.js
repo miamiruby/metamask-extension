@@ -728,16 +728,20 @@ function updateGasData ({
   selectedAddress,
   selectedToken,
   to,
+  value,
 }) {
+  const estimatedGasPrice = estimateGasPriceFromRecentBlocks(recentBlocks)
   return (dispatch) => {
     return Promise.all([
-      Promise.resolve(estimateGasPriceFromRecentBlocks(recentBlocks)),
       estimateGas({
+        estimateGasMethod: background.estimateGas,
         blockGasLimit,
         data,
         selectedAddress,
         selectedToken,
         to,
+        value,
+        gasPrice: estimatedGasPrice,
       }),
     ])
     .then(([gasPrice, gas]) => {

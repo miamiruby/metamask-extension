@@ -201,6 +201,7 @@ describe('Send Component', function () {
       assert.deepEqual(
         propsMethodSpies.updateAndSetGasTotal.getCall(0).args[0],
         {
+          amount: 'mockAmount',
           blockGasLimit: 'mockBlockGasLimit',
           data: 'mockData',
           editingTransactionId: 'mockEditingTransactionId',
@@ -209,8 +210,16 @@ describe('Send Component', function () {
           recentBlocks: ['mockBlock'],
           selectedAddress: 'mockSelectedAddress',
           selectedToken: 'mockSelectedToken',
+          to: undefined,
+          value: 'mockAmount',
         }
       )
+    })
+
+    it('should call updateAndSetGasTotal with to set to lowercase if passed', () => {
+      propsMethodSpies.updateAndSetGasTotal.resetHistory()
+      wrapper.instance().updateGas({ to: '0xABC' })
+      assert.equal(propsMethodSpies.updateAndSetGasTotal.getCall(0).args[0].to, '0xabc')
     })
   })
 
